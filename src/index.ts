@@ -7,6 +7,7 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import helmet from 'helmet'
 import compression from 'compression'
+import routes from './routes'
 // import morgan from 'morgan';
 
 dotenv.config()
@@ -46,3 +47,5 @@ app.use(express.json())
 app.listen(PORT, () => {
   console.log(`Server ${NODE_ENV} running on http://${HOST}:${PORT}`)
 })
+
+app.use('/api', routes())
